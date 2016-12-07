@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="6" passed="6">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="93350" started-at="2016-07-07T06:45:14Z" finished-at="2016-07-07T06:46:47Z">
+    <groups>
+    </groups>
+    <test name="Test Galaxy S6" duration-ms="81014" started-at="2016-07-07T06:45:14Z" finished-at="2016-07-07T06:46:35Z">
+      <class name="com.perfecto.testing.WebScenarioParallel">
+        <test-method status="PASS" signature="beforeTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.perfecto.testing.WebScenarioParallel@1ce92674]" name="beforeTest" is-config="true" duration-ms="8910" started-at="2016-07-07T09:45:14Z" finished-at="2016-07-07T09:45:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Android]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[mobileOS]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="geicoInsurance()[pri:0, instance:com.perfecto.testing.WebScenarioParallel@1ce92674]" name="geicoInsurance" duration-ms="46729" started-at="2016-07-07T09:45:23Z" finished-at="2016-07-07T09:46:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- geicoInsurance -->
+        <test-method status="PASS" signature="searchGoogle()[pri:0, instance:com.perfecto.testing.WebScenarioParallel@1ce92674]" name="searchGoogle" duration-ms="12583" started-at="2016-07-07T09:46:10Z" finished-at="2016-07-07T09:46:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchGoogle -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.perfecto.testing.WebScenarioParallel@1ce92674]" name="afterTest" is-config="true" duration-ms="12771" started-at="2016-07-07T09:46:22Z" finished-at="2016-07-07T09:46:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.perfecto.testing.WebScenarioParallel -->
+    </test> <!-- Test Galaxy S6 -->
+    <test name="Test WebMachine" duration-ms="81373" started-at="2016-07-07T06:45:14Z" finished-at="2016-07-07T06:46:35Z">
+      <class name="com.perfecto.testing.WebScenarioParallel">
+        <test-method status="PASS" signature="beforeTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.perfecto.testing.WebScenarioParallel@548e7350]" name="beforeTest" is-config="true" duration-ms="39022" started-at="2016-07-07T09:45:14Z" finished-at="2016-07-07T09:45:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Windows]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[7]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[51]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="geicoInsurance()[pri:0, instance:com.perfecto.testing.WebScenarioParallel@548e7350]" name="geicoInsurance" duration-ms="27593" started-at="2016-07-07T09:45:53Z" finished-at="2016-07-07T09:46:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- geicoInsurance -->
+        <test-method status="PASS" signature="searchGoogle()[pri:0, instance:com.perfecto.testing.WebScenarioParallel@548e7350]" name="searchGoogle" duration-ms="4384" started-at="2016-07-07T09:46:21Z" finished-at="2016-07-07T09:46:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchGoogle -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.perfecto.testing.WebScenarioParallel@548e7350]" name="afterTest" is-config="true" duration-ms="10359" started-at="2016-07-07T09:46:25Z" finished-at="2016-07-07T09:46:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.perfecto.testing.WebScenarioParallel -->
+    </test> <!-- Test WebMachine -->
+    <test name="Test iPhone6 Plus" duration-ms="93350" started-at="2016-07-07T06:45:14Z" finished-at="2016-07-07T06:46:47Z">
+      <class name="com.perfecto.testing.WebScenarioParallel">
+        <test-method status="PASS" signature="beforeTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.perfecto.testing.WebScenarioParallel@402a079c]" name="beforeTest" is-config="true" duration-ms="22350" started-at="2016-07-07T09:45:14Z" finished-at="2016-07-07T09:45:36Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[iOS]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[mobileOS]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="geicoInsurance()[pri:0, instance:com.perfecto.testing.WebScenarioParallel@402a079c]" name="geicoInsurance" duration-ms="48868" started-at="2016-07-07T09:45:36Z" finished-at="2016-07-07T09:46:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- geicoInsurance -->
+        <test-method status="PASS" signature="searchGoogle()[pri:0, instance:com.perfecto.testing.WebScenarioParallel@402a079c]" name="searchGoogle" duration-ms="12748" started-at="2016-07-07T09:46:25Z" finished-at="2016-07-07T09:46:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchGoogle -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.perfecto.testing.WebScenarioParallel@402a079c]" name="afterTest" is-config="true" duration-ms="9374" started-at="2016-07-07T09:46:38Z" finished-at="2016-07-07T09:46:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.perfecto.testing.WebScenarioParallel -->
+    </test> <!-- Test iPhone6 Plus -->
+  </suite> <!-- Suite -->
+</testng-results>
