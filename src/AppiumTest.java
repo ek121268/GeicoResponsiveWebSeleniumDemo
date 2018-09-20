@@ -34,7 +34,6 @@ public class AppiumTest {
         capabilities.setCapability("automationName", "Appium");
 
         // Call this method if you want the script to share the devices with the Perfecto Lab plugin.
-        PerfectoLabUtils.setExecutionIdCapability(capabilities, host);
 
         // Application settings examples.
         // capabilities.setCapability("app", "PRIVATE:applications/Errands.ipa");

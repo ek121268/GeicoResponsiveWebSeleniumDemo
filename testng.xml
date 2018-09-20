@@ -4,9 +4,9 @@
 	
 	<test name="Test WebMachine">
 		<parameter name="platformName" value="Windows" />
-		<parameter name="platformVersion" value="8.1" />
+		<parameter name="platformVersion" value="10" />
 		<parameter name="browserName" value="Chrome" />
-		<parameter name="browserVersion" value="53" />		
+		<parameter name="browserVersion" value="53" />
 		<parameter name="screenResolution" value="" />
 		<classes>
 			<class name="com.perfecto.testing.WebScenarioParallel" />

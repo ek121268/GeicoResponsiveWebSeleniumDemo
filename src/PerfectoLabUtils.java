@@ -15,17 +15,14 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.logging.Logger;
+
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.remote.*;
 
-import com.perfectomobile.selenium.util.EclipseConnector;
 
 public class PerfectoLabUtils {
-
-    private static final Logger logger = LoggerFactory.getLogger(PerfectoLabUtils.class);
 
 	private static final String HTTPS = "https://";
 	private static final String MEDIA_REPOSITORY = "/services/repositories/media/";
@@ -38,20 +35,6 @@ public class PerfectoLabUtils {
 	 * Example: downloadReport(driver, "pdf", "C:\\test\\report");
 	 * 
 	 */
-	public static void downloadReport(RemoteWebDriver driver, String type, String fileName) throws IOException {
-		try { 
-			String command = "mobile:report:download"; 
-			Map<String, Object> params = new HashMap<>(); 
-			params.put("type", type); 
-			String report = (String)driver.executeScript(command, params); 
-			File reportFile = new File(fileName + "." + type); 
-			BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(reportFile)); 
-			byte[] reportBytes = OutputType.BYTES.convertFromBase64Png(report); 
-			output.write(reportBytes);
-            output.close();
-		} catch (Exception ex) { 
-			System.out.println("Got exception " + ex); }
-	}
 
 	/**
 	 * Download all the report attachments with a certain type.
@@ -60,35 +43,6 @@ public class PerfectoLabUtils {
 	 * downloadAttachment(driver, "video", "C:\\test\\report\\video", "flv");
 	 * downloadAttachment(driver, "image", "C:\\test\\report\\images", "jpg");
 	 */
-	public static void downloadAttachment(RemoteWebDriver driver, String type, String fileName, String suffix) throws IOException {
-		try {
-			String command = "mobile:report:attachment";
-			boolean done = false;
-			int index = 0;
-
-			while (!done) {
-				Map<String, Object> params = new HashMap<>();	
-
-				params.put("type", type);
-				params.put("index", Integer.toString(index));
-
-				String attachment = (String)driver.executeScript(command, params);
-
-				if (attachment == null) { 
-					done = true; 
-				}
-				else { 
-					File file = new File(fileName + index + "." + suffix); 
-					BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(file)); 
-					byte[] bytes = OutputType.BYTES.convertFromBase64Png(attachment);	
-					output.write(bytes); 
-					output.close(); 
-					index++; }
-			}
-		} catch (Exception ex) { 
-			System.out.println("Got exception " + ex); 
-		}
-	}
 
 
 	/**
@@ -132,18 +86,6 @@ public class PerfectoLabUtils {
     /**
      * Sets the execution id capability
      */
-    public static void setExecutionIdCapability(DesiredCapabilities capabilities, String host) throws IOException {
-        try {
-            EclipseConnector connector = new EclipseConnector();
-            String eclipseHost = connector.getHost();
-            if ((eclipseHost == null) || (eclipseHost.equalsIgnoreCase(host))) {
-                String executionId = connector.getExecutionId();
-                capabilities.setCapability(EclipseConnector.ECLIPSE_EXECUTION_ID, executionId);
-            }
-        } catch (Exception e) {
-            logger.warn("Error connecting with the Eclipse connector - Resuming execution without the execution id capability");
-        }
-    }
 
 	private static void sendRequest(byte[] content, URL url) throws IOException {
 		HttpURLConnection connection = (HttpURLConnection)url.openConnection();

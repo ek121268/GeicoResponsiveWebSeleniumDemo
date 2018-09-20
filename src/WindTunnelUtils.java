@@ -1,5 +1,3 @@
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.IOException;
@@ -98,17 +96,6 @@ public final class WindTunnelUtils {
      * PersonaSettings settings = new PersonaSettings(null, "Boston", "landscape", "4G LTE Advanced Good", "Waze,YouTube");
      * String persona = createWindTunnelPersona(properties, device, settings);
      */
-    public static String createWindTunnelPersona(PersonaProperties properties, PersonaDevice device, PersonaSettings settings) throws JsonProcessingException {
-        Map<String, Object> persona = new HashMap<>();
-        Map<String, Object> propertiesMap = createPropertiesMap(properties);
-        persona.put(PROPERTIES, propertiesMap);
-        Map<String, Object> deviceMap = createDevice(device);
-        persona.put(DEVICE, deviceMap);
-        Map<String, Object> settingsMap = createSettings(settings);
-        persona.put(SETTINGS, settingsMap);
-        String json = convertToJson(persona);
-        return json;
-    }
 
     /**
      * Example:
@@ -119,16 +106,6 @@ public final class WindTunnelUtils {
      * String repositoryKey = uploadWindTunnelPersona(myHost, myUser, myPassword, "PRIVATE:Personas", properties, device, settings);
      * capabilities.setCapability(WindTunnelUtils.WIND_TUNNEL_PERSONA_KEY_CAPABILITY, repositoryKey);
      */
-    public static String uploadWindTunnelPersona(String host, String user, String password, String repositoryFolder,
-                                                 PersonaProperties properties, PersonaDevice device, PersonaSettings settings) throws UnsupportedEncodingException, MalformedURLException, IOException {
-        if (repositoryFolder == null) {
-            throw new RuntimeException("Can't upload persona without repository folder");
-        }
-        String persona = createWindTunnelPersona(properties, device, settings);
-        String repositoryKey = repositoryFolder + "/" + properties.getName() + ".json";
-        PerfectoLabUtils.uploadMedia(host, user, password, persona.getBytes(), repositoryKey);
-        return repositoryKey;
-    }
 
     public static class PersonaProperties {
         private String _name;
@@ -292,90 +269,7 @@ public final class WindTunnelUtils {
         }
     }
 
-    private static String convertToJson(Map<String, Object> content) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        String json = mapper.writeValueAsString(content);
-        return json;
-    }
 
-    private static Map<String, Object> createDevice(PersonaDevice device) {
-        Map<String, Object> deviceMap = new HashMap<>();
-        if (device != null) {
-            if (device.getDeviceName() != null) {
-                deviceMap.put(DEVICE_NAME_CAPABILITY, device.getDeviceName());
-            }
-            if (device.getPlatformName() != null) {
-                deviceMap.put(DEVICE_PLATFORM_NAME_CAPABILITY, device.getPlatformName());
-            }
-            if (device.getPlatformVersion() != null) {
-                deviceMap.put(DEVICE_PLATFORM_VERSION_CAPABILITY, device.getPlatformVersion());
-            }
-            if (device.getModel() != null) {
-                deviceMap.put(DEVICE_MODEL_CAPABILITY, device.getModel());
-            }
-            if (device.getManufacturer() != null) {
-                deviceMap.put(DEVICE_MANUFACTURER_CAPABILITY, device.getManufacturer());
-            }
-            if (device.getNetwork() != null) {
-                deviceMap.put(DEVICE_NETWORK_CAPABILITY, device.getNetwork());
-            }
-            if (device.getLocation() != null) {
-                deviceMap.put(DEVICE_LOCATION_CAPABILITY, device.getLocation());
-            }
-            if (device.getResolution() != null) {
-                deviceMap.put(DEVICE_RESOLUTION_CAPABILITY, device.getResolution());
-            }
-            if (device.getDescription() != null) {
-                deviceMap.put(DEVICE_DESCRIPTION_CAPABILITY, device.getDescription());
-            }
 
-        }
-        return deviceMap;
-    }
 
-    private static Map<String, Object> createSettings(PersonaSettings settings) {
-        Map<String, Object> settingsMap = new HashMap<>();
-        if (settings != null) {
-            if (settings.getLocation() != null) {
-                settingsMap.put(WIND_TUNNEL_LOCATION_CAPABILITY, settings.getLocation());
-            }
-            if (settings.getLocationAddress() != null) {
-                settingsMap.put(WIND_TUNNEL_LOCATION_ADDRESS_CAPABILITY, settings.getLocationAddress());
-            }
-            if (settings.getOrientation() != null) {
-                settingsMap.put(WIND_TUNNEL_ORIENTATION_CAPABILITY, settings.getOrientation());
-            }
-            if (settings.getVnetworkProfile() != null) {
-                settingsMap.put(WIND_TUNNEL_VNETWORK_CAPABILITY, settings.getVnetworkProfile());
-            }
-            if (settings.getApplications() != null) {
-                settingsMap.put(WIND_TUNNEL_BACKGROUND_RUNNING_APPS_CAPABILITY, settings.getApplications());
-            }
-        }
-        return settingsMap;
-    }
-
-    private static Map<String, Object> createPropertiesMap(PersonaProperties properties) {
-        if (properties == null) {
-            throw new RuntimeException("Can't create persona without properties");
-        }
-        if (properties.getName() == null) {
-            throw new RuntimeException("Can't create persona without name");
-        }
-
-        Map<String, Object> propertiesMap = new HashMap<>();
-        if (properties.getName() != null) {
-            propertiesMap.put(NAME, properties.getName());
-        }
-        if (properties.getDescription() != null) {
-            propertiesMap.put(DESCRIPTION, properties.getDescription());
-        }
-        if (properties.getImage() != null) {
-            propertiesMap.put(IMAGE, properties.getImage());
-        }
-        return propertiesMap;
-    }
-
-    private WindTunnelUtils() {
-    }
 }
